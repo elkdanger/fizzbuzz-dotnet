@@ -4,8 +4,11 @@ namespace FizzBuzz
 {
     static class FizzBuzzRunner 
     {
-        static public int Next(int ordinal)
+        static public object Next(int ordinal)
         {
+            if (ordinal % 3 == 0)
+                return "Fizz";
+                
             return ordinal;
         }
     }
