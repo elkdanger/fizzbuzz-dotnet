@@ -21,5 +21,13 @@ namespace FizzBuzz
 
             result.Should().Be("Fizz");
         }
+
+        [Fact]
+        public void Should_print_buzz_if_number_divisible_by_5()
+        {
+            var result = FizzBuzzRunner.Next(5);
+
+            result.Should().Be("Buzz");
+        }
     }
 }
