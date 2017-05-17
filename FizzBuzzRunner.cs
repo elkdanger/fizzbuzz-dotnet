@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace FizzBuzz 
 {
@@ -6,14 +8,15 @@ namespace FizzBuzz
     {
         static public object Next(int ordinal)
         {
-            if (ordinal % 3 == 0 && ordinal % 5 == 0)
-                return "FizzBuzz";
-            if (ordinal % 3 == 0)
-                return "Fizz";
-            if (ordinal % 5 == 0)
-                return "Buzz";
+            var m = new List<Func<int, String>>()
+            {
+                i => i % 3 == 0 ? "Fizz" : "",
+                i => i % 5 == 0 ? "Buzz" : ""
+            };
 
-            return ordinal;
+            var result = m.Aggregate("", (prod, next) => prod + next(ordinal));
+
+            return result == "" ? (object)ordinal : (object)result;
         }
     }
 }
