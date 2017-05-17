@@ -29,5 +29,13 @@ namespace FizzBuzz
 
             result.Should().Be("Buzz");
         }
+
+        [Fact]
+        public void Should_print_fizzbuzz_if_divisible_by_3_and_5()
+        {
+            var result = FizzBuzzRunner.Next(15);
+
+            result.Should().Be("FizzBuzz");
+        }
     }
 }
