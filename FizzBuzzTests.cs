@@ -6,12 +6,18 @@ namespace FizzBuzz
 {
     public class FizzBuzzTests
     {
-        [Fact]
-        public void Should_print_number_if_not_3_or_5() 
+        [Theory]
+        [InlineData(1)]
+        [InlineData(11)]
+        [InlineData(19)]
+        [InlineData(26)]
+        [InlineData(58)]
+        [InlineData(94)]
+        public void Should_print_number_if_not_3_or_5(int value) 
         {
-            var result = FizzBuzzRunner.Next(1);
+            var result = FizzBuzzRunner.Next(value);
 
-            result.Should().Be(1);
+            result.Should().Be(value);
         }
 
         [Fact]
