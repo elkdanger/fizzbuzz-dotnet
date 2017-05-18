@@ -6,18 +6,12 @@ namespace FizzBuzz
 {
     public class FizzBuzzTests
     {
-        [Theory]
-        [InlineData(1)]
-        [InlineData(11)]
-        [InlineData(19)]
-        [InlineData(26)]
-        [InlineData(58)]
-        [InlineData(94)]
-        public void Should_print_number_if_not_3_or_5(int value) 
+        [Fact]
+        public void Should_print_number_if_not_3_or_5() 
         {
-            var result = FizzBuzzRunner.Next(value);
+            var result = FizzBuzzRunner.Next(1);
 
-            result.Should().Be(value);
+            result.Should().Be("1");
         }
 
         [Fact]
@@ -25,7 +19,7 @@ namespace FizzBuzz
         {
             var result = FizzBuzzRunner.Next(3);
 
-            result.Should().Be("Fizz");
+            result.Should().Be("12Fizz");
         }
 
         [Fact]
@@ -33,7 +27,7 @@ namespace FizzBuzz
         {
             var result = FizzBuzzRunner.Next(5);
 
-            result.Should().Be("Buzz");
+            result.Should().Be("12Fizz4Buzz");
         }
 
         [Fact]
@@ -41,7 +35,7 @@ namespace FizzBuzz
         {
             var result = FizzBuzzRunner.Next(15);
 
-            result.Should().Be("FizzBuzz");
+            result.Should().Be("12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz");
         }
     }
 }

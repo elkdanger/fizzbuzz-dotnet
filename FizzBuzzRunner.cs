@@ -1,22 +1,30 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text;
 
 namespace FizzBuzz 
 {
     static class FizzBuzzRunner 
     {
-        static public object Next(int ordinal)
+        static public string Next(int ordinal)
         {
             var m = new List<Func<int, String>>()
             {
-                i => i % 3 == 0 ? "Fizz" : "",
-                i => i % 5 == 0 ? "Buzz" : ""
+                j => j % 3 == 0 ? "Fizz" : "",
+                j => j % 5 == 0 ? "Buzz" : ""
             };
 
-            var result = m.Aggregate("", (prod, next) => prod + next(ordinal));
+            var sb = new StringBuilder();
 
-            return result == "" ? (object)ordinal : (object)result;
+            for(var i = 1; i <= ordinal; i++) 
+            {
+                var result = m.Aggregate("", (prod, next) => prod + next(i));
+
+                sb.Append(result == "" ? i.ToString() : result);
+            }
+
+            return sb.ToString();
         }
     }
 }
